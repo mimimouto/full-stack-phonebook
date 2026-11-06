@@ -1,6 +1,5 @@
 const express = require('express') // https://expressjs.com/
 const morgan = require('morgan') // https://github.com/expressjs/morgan
-const cors = require('cors')
 
 const app = express()
 
@@ -32,7 +31,6 @@ morgan.token('post', function (req, res) { // Do NOT log sensitive data in pract
 })
 
 app.use(express.static('dist'))
-app.use(cors())
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :post'))
 
 app.get('/api/persons', (request, response) => {
